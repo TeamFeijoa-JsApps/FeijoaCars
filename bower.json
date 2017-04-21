@@ -1,0 +1,23 @@
+{
+  "name": "feijoacars",
+  "description": "Spa app for renting and selling cars.",
+  "main": "index.js",
+  "authors": [
+    "TeamFeijoa"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/TeamFeijoa-JsApps/FeijoaCars",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "handlebars": "^4.0.5",
+    "navigo": "^4.6.2"
+  }
+}
