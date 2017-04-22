@@ -12,7 +12,7 @@ SystemJS.config({
         'navigo': './libs/navigo/lib/navigo.js',
 
         // starting script
-        'app': './js/app.js'
+        'app': './public/js/app.js'
 
         // scripts
     }
