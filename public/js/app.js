@@ -1,1 +1,3 @@
-console.log('work');
+import { router } from 'router';
+
+router.init();
