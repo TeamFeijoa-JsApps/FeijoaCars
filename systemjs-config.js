@@ -15,7 +15,9 @@ SystemJS.config({
         'app': './public/js/app.js',
 
         // scripts
+        'templateEngine': './public/js/templateEngine.js',
         'router': './public/js/router.js'
+        
     }
 });
 
