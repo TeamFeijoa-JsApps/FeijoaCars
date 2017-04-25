@@ -17,14 +17,8 @@ let router = (() => {
         navigoRouter.on({
             '': () => navigoRouter.navigate('/home'),
             '/home': () => templateEngine.renderTemplate('home', ads, '#wrapper'),
-            '/login': () => {
-                $.get('public/templates/login.html', function (data) {
-                    $('#wrapper').html(data);
-                })
-            },
-            '/register': () => $.get('public/templates/register.html', function(data){
-                $('#wrapper').html(data);
-            }),
+            '/login': () => $('#wrapper').load('public/templates/login.html'),
+            '/register': () => $('#wrapper').load('public/templates/register.html'),
             '/logout': () => $('#wrapper').html('Logout page')
         })
             .resolve();
