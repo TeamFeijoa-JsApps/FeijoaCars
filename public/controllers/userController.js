@@ -1,5 +1,5 @@
 import {requester} from 'requester';
-import {router} from 'router';
+// import {router} from 'router';
 import {User} from 'user';
 import {userData} from 'userData';
 import {templateEngine} from 'templateEngine';
@@ -17,11 +17,12 @@ let userController = (() => {
 
                 let user = new User(username, email, password);
 
-                userData.register(user)
-                    .then(() => {
+                userData.register(user);
+                    /*.then(() => {
                         router.navigate('/home');
                         // location.href = '/home';
                     });
+                    */
                 });
         });
     }
