@@ -8,22 +8,22 @@ import {templateEngine} from 'templateEngine';
 let userController = (() => {
     function register() {
         console.log('inside');
-        templateEngine.renderTemplate('register', null, '#wrapper')
-            .then(() => {
-                console.log('after templating');
-                $("#register-btn").on('click', (ev) => {
-                    let username = $('#username').val(),
-                        email = $('#email').val(),
-                        password = $('#password').val();
+        $('#wrapper').load('public/templates/register.html', null, () => {
+            console.log('after templating');
+            $("#register-btn").on('click', (ev) => {
+                let username = $('#username').val(),
+                    email = $('#email').val(),
+                    password = $('#password').val();
 
-                    let user = new User(username, email, password);
+                let user = new User(username, email, password);
 
-                    userData.register(user)
-                        .then(() => {
-                            location.href = '/home';
-                        });
-                })
-            })
+                userData.register(user)
+                    .then(() => {
+                        router.navigate('/home');
+                        // location.href = '/home';
+                    });
+                });
+        });
     }
 
     return {
