@@ -24,18 +24,19 @@ function getHeaders(isJSON, useSession) {
 }
 
 function request(url, method, data, headers) {
-    let promise = new Promise((resolve, reject) =>
-        $.ajax({
+   // let promise = new Promise((resolve, reject) =>
+       return $.ajax({
             url,
             method,
             contentType: 'application/json',
             headers,
             data: JSON.stringify(data) || {},
-            success: resolve(data),
-            error: reject
-        }));
+            success: function(data) { return data; },
+            error: function(err) { return err; }
+        });
+        //);
 
-    return promise;
+   // return promise;
 }
 
 class Requester {
