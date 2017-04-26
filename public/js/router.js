@@ -1,5 +1,6 @@
 import Navigo from 'navigo';
 import { templateEngine } from 'templateEngine';
+import { userController } from 'userController';
 
 let router = (() => {
     let navigoRouter;
@@ -18,7 +19,7 @@ let router = (() => {
             '': () => navigoRouter.navigate('/home'),
             '/home': () => templateEngine.renderTemplate('home', ads, '#wrapper'),
             '/login': () => $('#wrapper').load('public/templates/login.html'),
-            '/register': () => $('#wrapper').load('public/templates/register.html'),
+            '/register': () => userController.register(),
             '/logout': () => $('#wrapper').html('Logout page')
         })
             .resolve();

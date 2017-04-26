@@ -16,8 +16,11 @@ SystemJS.config({
 
         // scripts
         'templateEngine': './public/js/templateEngine.js',
-        'router': './public/js/router.js'
-        
+        'router': './public/js/router.js',
+        'requester': './public/js/requester.js',
+        'user': './public/models/user.js',
+        'userData': './public/js/userData.js',
+        'userController': './public/controllers/userController.js'
     }
 });
 
