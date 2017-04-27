@@ -20,7 +20,8 @@ SystemJS.config({
         'requester': './public/js/requester.js',
         'user': './public/models/user.js',
         'userData': './public/js/userData.js',
-        'userController': './public/controllers/userController.js'
+        'userController': './public/controllers/userController.js',
+        'validator': './public/js/validator.js',
     }
 });
 

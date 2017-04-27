@@ -1,4 +1,12 @@
-<div class="register">
+<script>
+    $('#register-btn').on('click', function () {
+        if ($('#password').val() !== $('#repeat-pass').val()) {
+            alert('Passwords do not match!');
+        }
+    });
+</script>
+
+<div class="register" onsubmit="return validateForm();">
     <label for="username">Username</label>
     <input type="text" placeholder="Enter your username" id="username" required>
 
@@ -9,7 +17,7 @@
     <input type="password" id="password" placeholder="Enter a password" required />
 
     <label for="repeat-pass">Repeat Password</label>
-    <input type="password" id="repeat-pass" placeholder="Repeat your password"  required>
+    <input type="password" id="repeat-pass" placeholder="Repeat your password" required>
 
     <button type="submit" id="register-btn">Register</button>
 </div>
