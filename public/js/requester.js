@@ -1,8 +1,5 @@
 import 'jquery';
-
-const appKey = 'kid_Sy_MA1TAe',
-    appSecret = '1720b45e3674404b818877ea56656453',
-    hostUrl = 'https://baas.kinvey.com/';
+import { constants } from 'constants';
 
 function getHeaders(isJSON, useSession) {
     let headers = {},
@@ -16,7 +13,7 @@ function getHeaders(isJSON, useSession) {
         token = sessionStorage['sessionID'];
         headers['Authorization'] = 'Kinvey ' + token;
     } else {
-        token = appKey + ':' + appSecret;
+        token = constants.kinveyInfo.appKey + ':' + constants.kinveyInfo.appSecret;
         headers['Authorization'] = 'Basic ' + btoa(token);
     }
 
@@ -24,7 +21,6 @@ function getHeaders(isJSON, useSession) {
 }
 
 function request(url, method, data, headers) {
-   // let promise = new Promise((resolve, reject) =>
        return $.ajax({
             url,
             method,
@@ -34,54 +30,9 @@ function request(url, method, data, headers) {
             success: function(data) { return data; },
             error: function(err) { return err; }
         });
-        //);
-
-   // return promise;
 }
 
 class Requester {
-    // constructor(appKey, appSecret, hostUrl) {
-    //     this._appKey = appKey;
-    //     this._appSecret = appSecret;
-    //     this._hostUrl = hostUrl;
-    // }
-
-
-
-    // request(url, method, data, headers) {
-    //     let promise = new Promise((resolve, reject) =>
-    //         $.ajax({
-    //             url,
-    //             method,
-    //             contentType: 'application/json',
-    //             headers,
-    //             data: data,
-    //             success: resolve(data),
-    //             error: reject
-    //         }));
-    //
-    //     return promise;
-    // }
-
-    // getHeaders(isJSON, useSession) {
-    //     let headers = {},
-    //         token;
-    //
-    //     if (isJSON) {
-    //         headers['Content-Type'] = 'application/json';
-    //     }
-    //
-    //     if (useSession) {
-    //         token = sessionStorage['sessionID'];
-    //         headers['Authorization'] = 'Kinvey ' + token;
-    //     } else {
-    //         token = this._appKey + ':' + this._appSecret;
-    //         headers['Authorization'] = 'Basic ' + btoa(token);
-    //     }
-    //
-    //     return headers;
-    // }
-
     get(url, useSession) {
         let headers = getHeaders(false, useSession);
 
@@ -90,7 +41,6 @@ class Requester {
 
     post(url, data, useSession) {
         let headers = getHeaders(data, useSession);
-        console.log('zakomentiran getHeaders');
 
         return request(url, 'POST', data ,headers);
     };

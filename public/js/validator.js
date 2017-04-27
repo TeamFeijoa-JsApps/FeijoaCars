@@ -16,7 +16,7 @@ const validator = {
         }
 
         if (username.length < USERNAMEMINLENGTH) {
-            throwError(`The username is too short! Should be more than ${USERNAMEMINLENGTH} characters long.`);
+            throw Error(`The username is too short! Should be more than ${USERNAMEMINLENGTH} characters long.`);
         }
 
         if (!username.match(USERNAMEREGEX)) {

@@ -22,6 +22,7 @@ SystemJS.config({
         'userData': './public/js/userData.js',
         'userController': './public/controllers/userController.js',
         'validator': './public/js/validator.js',
+        'constants': './public/utils/constants.js'
     }
 });
 

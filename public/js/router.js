@@ -7,9 +7,9 @@ let router = (() => {
 
     // Dummy Ads data - will be removed when Kinvey DB is implemented
     let ads = [
-        { 'title': 'Car 1', 'description': 'Some info 1' },
-        { 'title': 'Car 2', 'description': 'Some info 2' },
-        { 'title': 'Car 3', 'description': 'Some info 3' }
+        {'title': 'Car 1', 'description': 'Some info 1'},
+        {'title': 'Car 2', 'description': 'Some info 2'},
+        {'title': 'Car 3', 'description': 'Some info 3'}
     ];
 
     function init() {
@@ -30,4 +30,4 @@ let router = (() => {
     }
 })();
 
-export { router };
+export {router};
