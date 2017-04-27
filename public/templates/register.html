@@ -2,6 +2,7 @@
     $('#register-btn').on('click', function () {
         if ($('#password').val() !== $('#repeat-pass').val()) {
             alert('Passwords do not match!');
+            throw('Passwords do not match!');
         }
     });
 </script>
