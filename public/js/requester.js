@@ -10,7 +10,7 @@ function getHeaders(isJSON, useSession) {
     }
 
     if (useSession) {
-        token = sessionStorage['sessionID'];
+        token = sessionStorage['sessionId'];
         headers['Authorization'] = 'Kinvey ' + token;
     } else {
         token = constants.kinveyInfo.appKey + ':' + constants.kinveyInfo.appSecret;

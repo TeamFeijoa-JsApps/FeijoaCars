@@ -1,7 +1,7 @@
 let constants = (() => {
     const kinveyInfo = {
-        appKey: 'kid_Sy_MA1TAe',
-        appSecret : '1720b45e3674404b818877ea56656453',
+        appKey: 'kid_SJVFb-Gyb',
+        appSecret : 'f848e14f91454d548965f68c61bf2638',
         hostUrl: 'https://baas.kinvey.com/'
     };
 

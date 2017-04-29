@@ -3,31 +3,41 @@ import { constants } from 'constants';
 
 const serviceURL = constants.kinveyInfo.hostUrl + 'user/' + constants.kinveyInfo.appKey + '/';
 
+function setSessionStorage(success) {
+    sessionStorage['sessionId'] = success._kmd.authtoken;
+    sessionStorage['username'] = success.username;
+    sessionStorage['userId'] = success._id;
+}
+
 let userData = (() => {
     function register(user) {
         return requester.post(serviceURL, user, false)
-            .pipe((success) => {
-                sessionStorage['sessionId'] = success._kmd.authtoken;
-                sessionStorage['username'] = success.username;
-                sessionStorage['userId'] = success._id;
-
-                console.log(sessionStorage);
+            .then((success) => {
+                setSessionStorage(success);
             }).done(()=> {
-                location.hash = '/home';
+                location.hash = '/login';
             });
     }
 
     function login(user) {
         let requestUrl = serviceURL + 'login';
 
-        return requester.post(requestUrl, user, false);
+        return requester.post(requestUrl, user, false)
+            .then((success) => {
+                setSessionStorage(success);
+            }).done(() => {
+                location.hash = '/home';
+            })
     }
 
     function logout() {
         let requestUrl = serviceURL + '_logout';
-
-        return requester.post(requestUrl, null, true);
-
+        return requester.post(requestUrl, null, true)
+            .then(() => {
+                sessionStorage.clear()
+            }).done(() => {
+                location.hash = '/home';
+            });
     }
 
     return {

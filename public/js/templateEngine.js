@@ -6,7 +6,6 @@ let templateEngine =(() => {
 	function renderTemplate(name, context, destination) {
 	    return $.get('/public/templates/' +name+ '.hbs')
 	    		.then(function(data) {
-					console.log('inside rendering');
 	    			let template = Handlebars.compile(data);
 					let compiledTemplate = template(context);
 	       			

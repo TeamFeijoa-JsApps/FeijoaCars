@@ -1,8 +1,7 @@
 import {requester} from 'requester';
-import {User} from 'user';
 import {userData} from 'userData';
 import {templateEngine} from 'templateEngine';
-
+import { validator } from 'validator';
 
 let userController = (() => {
     function register() {
@@ -12,15 +11,46 @@ let userController = (() => {
                     email = $('#email').val(),
                     password = $('#password').val();
 
-                let user = new User(username, email, password);
+                validator.validateUsername(username);
+                validator.validatePass(password);
+                validator.validateEmail(email);
+
+                let user = {
+                    username: username,
+                    password: password,
+                    email: email
+                };
 
                 userData.register(user);
             });
         });
     }
 
+    function login() {
+        $('#wrapper').load('public/templates/login.html', null, () => {
+            $("#login-btn").on('click', (ev) => {
+                let username = $('#username').val(),
+                    password = $('#password').val();
+
+                let user = {
+                    username: username,
+                    password: password
+                };
+                userData.login(user);
+            });
+        });
+    }
+
+    function logout() {
+        $('#logout-btn').on('click', (ev) => {
+            userData.logout();
+        })
+    }
+
     return {
-        register: register
+        register: register,
+        login: login,
+        logout: logout
     }
 
 })();

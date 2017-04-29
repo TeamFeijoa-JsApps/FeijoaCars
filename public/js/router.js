@@ -18,9 +18,9 @@ let router = (() => {
         navigoRouter.on({
             '': () => navigoRouter.navigate('/home'),
             '/home': () => templateEngine.renderTemplate('home', ads, '#wrapper'),
-            '/login': () => $('#wrapper').load('public/templates/login.html'),
+            '/login': () => userController.login(),
             '/register': () => userController.register(),
-            '/logout': () => $('#wrapper').html('Logout page')
+            '/logout': () => userController.logout()
         })
             .resolve();
     }
