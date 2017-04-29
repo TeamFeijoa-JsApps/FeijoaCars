@@ -16,7 +16,8 @@ let userData = (() => {
                 setSessionStorage(success);
 
                 login(user);
-            }).done(()=> {
+            })
+            .done(()=> {
                 location.hash = '/home';
             });
     }

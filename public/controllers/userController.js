@@ -47,10 +47,20 @@ let userController = (() => {
         })
     }
 
+    function isLoggedIn() {
+        if (sessionStorage['sessionId']) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     return {
-        register: register,
-        login: login,
-        logout: logout
+        register,
+        login,
+        logout,
+        isLoggedIn
     }
 
 })();

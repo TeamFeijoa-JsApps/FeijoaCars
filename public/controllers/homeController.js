@@ -1,4 +1,5 @@
 import { templateEngine } from 'templateEngine';
+import { userController } from 'userController'
 
 let homeController = (() => {
     function home() {
@@ -11,30 +12,21 @@ let homeController = (() => {
         ];
 
         templateEngine.renderTemplate('home', ads, '#wrapper')
-
-
     }
     
     function loadWellcomeMessage() {
         let user = {};
 
-        if(sessionStorage['sessionId']) {
+        if(userController.isLoggedIn()) {
             user.username = sessionStorage['username'];
         }
 
-        console.log(user);
         templateEngine.renderTemplate('wellcomeMessage', user, '#main-header' )
     }
-
 
     return {
         home
     }
-    
-
-
-
-
 })();
 
 export { homeController };
