@@ -1,0 +1,10 @@
+<div class="welcome-message">
+    {{#if username}}
+        <p>Welcome, {{username}}!</p>
+        <a href="#/logout" id="logout-btn">Logout</a>
+    {{else}}
+        <p>Welcome, Guest!</p>
+        <a href="#/login/">Login</a>
+        <a href="#/register/">Register</a>
+    {{/if}}
+</div>

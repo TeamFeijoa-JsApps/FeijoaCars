@@ -21,6 +21,7 @@ SystemJS.config({
         'user': './public/models/user.js',
         'userData': './public/js/userData.js',
         'userController': './public/controllers/userController.js',
+        'homeController': './public/controllers/homeController.js',
         'validator': './public/js/validator.js',
         'constants': './public/utils/constants.js'
     }

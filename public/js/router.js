@@ -1,6 +1,7 @@
 import Navigo from 'navigo';
 import { templateEngine } from 'templateEngine';
 import { userController } from 'userController';
+import { homeController } from 'homeController';
 
 let router = (() => {
     let navigoRouter;
@@ -17,7 +18,7 @@ let router = (() => {
 
         navigoRouter.on({
             '': () => navigoRouter.navigate('/home'),
-            '/home': () => templateEngine.renderTemplate('home', ads, '#wrapper'),
+            '/home': () => homeController.home(),
             '/login': () => userController.login(),
             '/register': () => userController.register(),
             '/logout': () => userController.logout()

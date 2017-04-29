@@ -14,8 +14,10 @@ let userData = (() => {
         return requester.post(serviceURL, user, false)
             .then((success) => {
                 setSessionStorage(success);
+
+                login(user);
             }).done(()=> {
-                location.hash = '/login';
+                location.hash = '/home';
             });
     }
 
@@ -32,7 +34,7 @@ let userData = (() => {
 
     function logout() {
         let requestUrl = serviceURL + '_logout';
-        return requester.post(requestUrl, null, true)
+        return requester.post(requestUrl, {}, true)
             .then(() => {
                 sessionStorage.clear()
             }).done(() => {
