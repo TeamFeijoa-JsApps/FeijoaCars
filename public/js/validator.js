@@ -22,9 +22,6 @@ const validator = {
         if (!username.match(USERNAMEREGEX)) {
             throwError(`The username contains invalid symbols!`);
         }
-
-
-        // TODO: implement duplicate username check
     },
 
     validateEmail(email) {
@@ -57,7 +54,6 @@ const validator = {
             throwError("Your password must contain at least one digit.");
         }
     }
-
 };
 
 let throwError = function (message) {

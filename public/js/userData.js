@@ -17,7 +17,7 @@ let userData = (() => {
 
                 login(user);
             })
-            .done(()=> {
+            .done(() => {
                 location.hash = '/home';
             });
     }

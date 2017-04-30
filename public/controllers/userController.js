@@ -1,6 +1,6 @@
-import {requester} from 'requester';
-import {userData} from 'userData';
-import {templateEngine} from 'templateEngine';
+import { requester } from 'requester';
+import { userData } from 'userData';
+import { templateEngine } from 'templateEngine';
 import { validator } from 'validator';
 
 let userController = (() => {
@@ -42,9 +42,7 @@ let userController = (() => {
     }
 
     function logout() {
-        $('#logout-btn').on('click', (ev) => {
-            userData.logout();
-        })
+        userData.logout();
     }
 
     function isLoggedIn() {
@@ -65,4 +63,4 @@ let userController = (() => {
 
 })();
 
-export {userController};
+export { userController };
