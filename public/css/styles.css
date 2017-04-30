@@ -3,7 +3,7 @@
 	text-align: right;
 }
 
-.login input {
+.login input, .register input {
 	margin-bottom: 10px;
 }
 
