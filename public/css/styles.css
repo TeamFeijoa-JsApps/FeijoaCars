@@ -3,6 +3,10 @@
 	text-align: right;
 }
 
+.login input {
+	margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
 
 	.welcome-message {
