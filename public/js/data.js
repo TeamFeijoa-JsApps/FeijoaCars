@@ -26,7 +26,7 @@ let data = (() => {
     }
 
     function getAds() {
-        let requestUrl = serviceURL + 'ads/?query={}&limit=5';
+        let requestUrl = serviceURL + 'ads/?query={}&sort={"_kmd": -1}&limit=5';
 
         return requester.get(requestUrl, true);
     }
