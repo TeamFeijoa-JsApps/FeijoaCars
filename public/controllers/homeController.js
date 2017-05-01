@@ -3,7 +3,7 @@ import { userController } from 'userController'
 
 let homeController = (() => {
     function home() {
-        loadWellcomeMessage();
+        loadWelcomeMessage();
 
         let ads = [
             {'title': 'Car 1', 'description': 'Some info 1'},
@@ -14,14 +14,14 @@ let homeController = (() => {
         templateEngine.renderTemplate('home', ads, '#wrapper')
     }
     
-    function loadWellcomeMessage() {
+    function loadWelcomeMessage() {
         let user = {};
 
         if(userController.isLoggedIn()) {
             user.username = sessionStorage['username'];
         }
 
-        templateEngine.renderTemplate('wellcomeMessage', user, '#main-header' )
+        templateEngine.renderTemplate('welcomeMessage', user, '#main-header' )
     }
 
     return {

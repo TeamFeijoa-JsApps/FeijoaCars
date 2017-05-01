@@ -6,6 +6,9 @@ import { validator } from 'validator';
 let userController = (() => {
     function register() {
         $('#wrapper').load('public/templates/register.html', null, () => {
+
+            templateEngine.renderTemplate('welcomeMessage', null, '#main-header');
+
             $("#register-btn").on('click', (ev) => {
                 let username = $('#username').val(),
                     email = $('#email').val(),
@@ -28,6 +31,9 @@ let userController = (() => {
 
     function login() {
         $('#wrapper').load('public/templates/login.html', null, () => {
+
+            templateEngine.renderTemplate('welcomeMessage', null, '#main-header');
+
             $("#login-btn").on('click', (ev) => {
                 let username = $('#username').val(),
                     password = $('#password').val();
