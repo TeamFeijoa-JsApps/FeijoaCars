@@ -18,17 +18,38 @@ let data = (() => {
         return requester.get(requestUrl, true);
 
     }
+    
+    function getAdById(id) {
+        let requestUrl = serviceURL + 'ads/' +id;
+
+        return requester.get(requestUrl, true);
+    }
 
     function getAds() {
         let requestUrl = serviceURL + 'ads/?query={}&limit=5';
 
         return requester.get(requestUrl, true);
     }
+    
+    function updateAd(ad) {
+        let requestUrl = serviceURL + 'ads/' + ad._id;
+
+        return requester.put(requestUrl, ad, true);
+    }
+    
+    function deleteAd(id) {
+        let requestUrl = serviceURL + 'ads/?query={"_id":"' + id + '"}}';
+
+        return requester.delete(requestUrl, true);
+    }
 
     return {
         addNewAd,
         getUserAds,
-        getAds
+        getAdById,
+        getAds,
+        updateAd,
+        deleteAd
     }
 
 })();
