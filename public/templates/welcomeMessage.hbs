@@ -10,8 +10,10 @@
         <p>Welcome, {{username}}!</p>
         <a href="#/profile/:id" id="profile">My Profile</a> | 
         <a href="#/logout" id="logout-btn">Logout</a>
-        <button id="addNewAd-btn">Create new ad</button>
-        <button id="showMyAds-btn">Show my ads</button>
+        <div class="buttons text-left">
+            <button id="addNewAd-btn">Create new ad</button>
+            <button id="showMyAds-btn">Show my ads</button>
+        </div>
     {{else}}
         <p>Welcome, Guest!</p>
         <a href="#/login/">Login</a> | 
