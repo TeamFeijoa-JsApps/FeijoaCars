@@ -3,7 +3,6 @@ import { data } from 'data';
 import { templateEngine } from 'templateEngine';
 import { homeController } from 'homeController';
 
-
 let adController = (() => {
 
     function addNewAd() {
@@ -43,10 +42,17 @@ let adController = (() => {
             } )
     }
 
+    function getNewestAds() {
+        homeController.loadWelcomeMessage();
+
+        return data.getAds();
+    }
+
 
     return {
         addNewAd,
-        displayAds
+        displayAds,
+        getNewestAds
     }
 
 

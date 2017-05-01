@@ -1,18 +1,15 @@
 import { templateEngine } from 'templateEngine';
 import { userController } from 'userController'
+import { adController } from 'adController';
 
 let homeController = (() => {
     function home() {
         loadWelcomeMessage();
 
-        let ads = [
-            {'title': 'Car 1', 'description': 'Some info 1'},
-            {'title': 'Car 2', 'description': 'Some info 2'},
-            {'title': 'Car 3', 'description': 'Some info 3'}
-        ];
-
-        templateEngine.renderTemplate('home', ads, '#wrapper')
-            .then(() => {
+        adController.getNewestAds().then((ads) => {
+        //    console.log(ads);
+            templateEngine.renderTemplate('home', ads, '#wrapper');
+        }).then(() => {
                 if(userController.isLoggedIn()) {
                     $('#addNewAd-btn').show();
                     $('#showMyAds-btn').show();
@@ -20,7 +17,7 @@ let homeController = (() => {
                     $('#addNewAd-btn').hide();
                     $('#showMyAds-btn').hide();
                 }
-        })
+        });
     }
     
     function loadWelcomeMessage() {

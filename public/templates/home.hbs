@@ -10,9 +10,23 @@
    {{#each .}}
     <div class="ad thumbnail">
 	    <p>
-	    <h3>{{title}}</h3>
+	    <h3>{{_title}}</h3>
 	    </br>
-	    {{description}}
+	    {{_make}}
+      </br>
+      {{_fuel}}
+      </br>
+      {{_gearbox}}
+      </br>
+      {{_manufactureDate}}
+      </br>
+      {{_mileage}}
+      </br>
+      {{_model}}
+      </br>
+      {{_power}}
+      </br>
+      {{_price}}
 	    </p>
     </div>
     {{/each}}

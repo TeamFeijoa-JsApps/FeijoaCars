@@ -19,9 +19,16 @@ let data = (() => {
 
     }
 
+    function getAds() {
+        let requestUrl = serviceURL + 'ads/?query={}&limit=5';
+
+        return requester.get(requestUrl, true);
+    }
+
     return {
         addNewAd,
-        getUserAds
+        getUserAds,
+        getAds
     }
 
 })();
