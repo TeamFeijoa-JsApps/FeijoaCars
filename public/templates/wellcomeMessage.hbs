@@ -1,6 +1,7 @@
 <div class="welcome-message">
     {{#if username}}
         <p>Welcome, {{username}}!</p>
+        <a href="#/profile/:id" id="profile">My Profile</a> | 
         <a href="#/logout" id="logout-btn">Logout</a>
     {{else}}
         <p>Welcome, Guest!</p>

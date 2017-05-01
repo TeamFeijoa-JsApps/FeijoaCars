@@ -43,10 +43,16 @@ let userData = (() => {
             });
     }
 
+    function showProfile(id) {
+        id = sessionStorage['userId'];
+        location.hash = '/profile/'+ id;
+    }
+
     return {
         register,
         login,
-        logout
+        logout,
+        showProfile
     }
 })();
 

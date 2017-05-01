@@ -53,12 +53,24 @@ let userController = (() => {
         }
     }
 
+    function showProfile(id) {
+        let user = {};
+
+        if(userController.isLoggedIn()) {
+            user.username = sessionStorage['username'];
+        }
+
+        userData.showProfile(id);
+        templateEngine.renderTemplate('profile', user, '#wrapper');
+    }
+
 
     return {
         register,
         login,
         logout,
-        isLoggedIn
+        isLoggedIn,
+        showProfile
     }
 
 })();

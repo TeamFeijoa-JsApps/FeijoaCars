@@ -13,7 +13,8 @@ let router = (() => {
             '/home': () => homeController.home(),
             '/login': () => userController.login(),
             '/register': () => userController.register(),
-            '/logout': () => userController.logout()
+            '/logout': () => userController.logout(),
+            '/profile/:id': (id) => userController.showProfile(id)
         })
             .resolve();
     }
