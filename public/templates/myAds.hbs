@@ -1,0 +1,30 @@
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Fuel</th>
+        <th>Power</th>
+        <th>Mileage</th>
+        <th>Gearbox</th>
+        <th>Manufacture date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each .}}
+        <tr>
+            <td>{{this._title}}</td>
+            <td>{{this._make}}</td>
+            <td>{{this._model}}</td>
+            <td>{{this._price}}</td>
+            <td>{{this._fuel}}</td>
+            <td>{{this._power}}</td>
+            <td>{{this._mileage}}</td>
+            <td>{{this._gearbox}}</td>
+            <td>{{this._manufactureDate}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
