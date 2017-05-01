@@ -18,12 +18,19 @@ SystemJS.config({
         'templateEngine': './public/js/templateEngine.js',
         'router': './public/js/router.js',
         'requester': './public/js/requester.js',
-        'user': './public/models/user.js',
         'userData': './public/js/userData.js',
+        'data': './public/js/data.js',
+        'validator': './public/js/validator.js',
+        'constants': './public/utils/constants.js',
+
+        // scripts/controllers
         'userController': './public/controllers/userController.js',
         'homeController': './public/controllers/homeController.js',
-        'validator': './public/js/validator.js',
-        'constants': './public/utils/constants.js'
+        'adController': './public/controllers/advertController.js',
+
+        // scripts/models
+        'user': './public/models/user.js',
+        'ad': './public/models/ad.js'
     }
 });
 

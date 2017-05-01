@@ -1,6 +1,7 @@
 import Navigo from 'navigo';
 import { userController } from 'userController';
 import { homeController } from 'homeController';
+import { adController } from 'adController';
 
 let router = (() => {
     let navigoRouter;
@@ -14,7 +15,9 @@ let router = (() => {
             '/login': () => userController.login(),
             '/register': () => userController.register(),
             '/logout': () => userController.logout(),
-            '/profile/:id': (id) => userController.showProfile(id)
+            '/profile/:id': (id) => userController.showProfile(id),
+            '/addNewAd': () => adController.addNewAd(),
+            '/myAds': () => adController.displayAds()
         })
             .resolve();
     }

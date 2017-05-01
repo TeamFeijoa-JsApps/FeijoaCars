@@ -12,6 +12,15 @@ let homeController = (() => {
         ];
 
         templateEngine.renderTemplate('home', ads, '#wrapper')
+            .then(() => {
+                if(userController.isLoggedIn()) {
+                    $('#addNewAd-btn').show();
+                    $('#showMyAds-btn').show();
+                } else {
+                    $('#addNewAd-btn').hide();
+                    $('#showMyAds-btn').hide();
+                }
+        })
     }
     
     function loadWelcomeMessage() {
@@ -21,11 +30,21 @@ let homeController = (() => {
             user.username = sessionStorage['username'];
         }
 
-        templateEngine.renderTemplate('welcomeMessage', user, '#main-header' )
+        templateEngine.renderTemplate('welcomeMessage', user, '#main-header')
+            .then(() => {
+                $('#addNewAd-btn').on('click', (ev) => {
+                    location.hash = '/addNewAd';
+                });
+
+                $('#showMyAds-btn').on('click', (ev) => {
+                    location.hash = '/myAds';
+                });
+            })
     }
 
     return {
-        home
+        home,
+        loadWelcomeMessage
     }
 })();
 
