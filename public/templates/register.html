@@ -5,10 +5,10 @@
 
         if (password != confirmPassword) {
             $('#register-btn').hide();
-            $("#divCheckPasswordMatch").html("Passwords do not match!");
+            $("#divCheckPasswordMatch").html("Passwords do not match!").css("color", "red");
         }
         else {
-            $("#divCheckPasswordMatch").html("Passwords match.");
+            $("#divCheckPasswordMatch").html("Passwords match.").css("color", "green");
             $('#register-btn').show();
         }
 
@@ -46,7 +46,7 @@
         <div class="row">
             <input type="password" id="repeat-pass" placeholder="Repeat your password" class="form-control" required onChange="checkPasswordMatch();">
         </div>
-        <strong><div style="color:#ff0000" class="registrationFormAlert" id="divCheckPasswordMatch">
+        <strong><div class="registrationFormAlert" id="divCheckPasswordMatch">
         </div></strong>
         <div class="row">
             <button type="submit" id="register-btn" class="btn btn-primary">Register</button>
