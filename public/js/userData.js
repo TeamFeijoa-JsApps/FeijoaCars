@@ -40,6 +40,7 @@ let userData = (() => {
                 sessionStorage.clear()
             }).done(() => {
                 location.hash = '/home';
+                location.reload();
             });
     }
 
