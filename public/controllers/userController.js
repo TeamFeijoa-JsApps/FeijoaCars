@@ -48,6 +48,7 @@ let userController = (() => {
     }
 
     function logout() {
+        $('#wrapper').empty();
         userData.logout();
     }
 
