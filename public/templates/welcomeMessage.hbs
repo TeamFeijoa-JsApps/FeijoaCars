@@ -1,10 +1,19 @@
 <div class="welcome-message">
+
+<div class="col-lg-1 text-left">
+  <div class="home">
+    <a href="#/home" class="h1">Home</a>
+  </div>
+</div>
+
     {{#if username}}
         <p>Welcome, {{username}}!</p>
         <a href="#/profile/:id" id="profile">My Profile</a> | 
         <a href="#/logout" id="logout-btn">Logout</a>
-        <button id="addNewAd-btn">Create new ad</button>
-        <button id="showMyAds-btn">Show my ads</button>
+        <div class="buttons text-left">
+            <button id="addNewAd-btn">Create new ad</button>
+            <button id="showMyAds-btn">Show my ads</button>
+        </div>
     {{else}}
         <p>Welcome, Guest!</p>
         <a href="#/login/">Login</a> | 
