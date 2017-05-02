@@ -4,7 +4,7 @@
   "description": "Spa app for renting and selling cars.",
   "main": "index.js",
   "scripts": {
-	"start": "live-server",
+    "start": "live-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "live-server": "^1.2.0",
     "systemjs": "^0.20.12",
-    "systemjs-plugin-babel": "0.0.21"
+    "systemjs-plugin-babel": "0.0.21",
+    "toastr": "^2.1.2"
   }
 }

@@ -1,7 +1,7 @@
 import { requester } from 'requester';
 import { userData } from 'userData';
 import { templateEngine } from 'templateEngine';
-import { validator } from 'validator';
+import { userValidator } from 'userValidator';
 
 let userController = (() => {
     function register() {
@@ -14,9 +14,9 @@ let userController = (() => {
                     email = $('#email').val(),
                     password = $('#password').val();
 
-                validator.validateUsername(username);
-                validator.validatePass(password);
-                validator.validateEmail(email);
+                userValidator.validateUsername(username);
+                userValidator.validateEmail(email);
+                userValidator.validatePass(password);
 
                 let user = {
                     username: username,
@@ -62,7 +62,7 @@ let userController = (() => {
     function showProfile(id) {
         let user = {};
 
-        if(userController.isLoggedIn()) {
+        if (userController.isLoggedIn()) {
             user.username = sessionStorage['username'];
         }
 
