@@ -1,6 +1,6 @@
 import toastr from 'toastr';
 
-const USERNAMEREGEX = /^[a-zA-Z0-9]+$/;
+const USERNAMEREGEX = /^[a-zA-Z0-9_]+$/;
 const USERNAMEMAXLENGTH = 30;
 const USERNAMEMINLENGTH = 3;
 

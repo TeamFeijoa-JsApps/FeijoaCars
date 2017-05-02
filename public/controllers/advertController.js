@@ -2,6 +2,7 @@ import { Ad } from 'ad';
 import { data } from 'data';
 import { templateEngine } from 'templateEngine';
 import { homeController } from 'homeController';
+import { adValidator } from 'adValidator';
 
 let adController = (() => {
 
@@ -19,6 +20,11 @@ let adController = (() => {
                     mileage = $('#mileage').val(),
                     gearbox = $('#gearbox').val(),
                     manufactureDate = $('#manufactureDate').val();
+
+                    adValidator.validateModel(model);
+                    adValidator.validatePrice(price);
+                    adValidator.validatePower(power);
+                    adValidator.validateMileage(mileage);
 
                 let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate);
 
