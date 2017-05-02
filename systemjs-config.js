@@ -10,6 +10,7 @@ SystemJS.config({
         'bootstrap': './public/libs/bootstrap/dist/js/bootstrap.js',
         'handlebars': './public/libs/handlebars/handlebars.js',
         'navigo': './public/libs/navigo/lib/navigo.js',
+        'toastr': './public/libs/toastr/package/toastr.js',
 
         // starting script
         'app': './public/js/app.js',
@@ -20,7 +21,8 @@ SystemJS.config({
         'requester': './public/js/requester.js',
         'userData': './public/js/userData.js',
         'data': './public/js/data.js',
-        'validator': './public/js/validator.js',
+        'userValidator': './public/js/validators/userValidator.js',
+        'adValidator': './public/js/validators/adValidator.js',
         'constants': './public/utils/constants.js',
 
         // scripts/controllers

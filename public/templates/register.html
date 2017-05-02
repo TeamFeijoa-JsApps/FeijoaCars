@@ -1,39 +1,54 @@
 <script>
-    $('#register-btn').on('click', function () {
-        if ($('#password').val() !== $('#repeat-pass').val()) {
-            alert('Passwords do not match!');
-            throw('Passwords do not match!');
-        }
-    });
-</script>
-<div class="col-lg-12 col-md-12 col-sm-12 text-center">
-<div class="register form-inline" onsubmit="return validateForm();">
-    <div class="row">
-        <label for="username">Username</label>
-    </div>
-    <div class="row">        
-        <input type="text" placeholder="Enter your username" id="username" class="form-control"required>
-    </div>
-    <div class="row">
-        <label for="email">E-mail</label>
-    </div>
-    <div class="row">
-        <input type="text" placeholder="Enter your email" id="email" class="form-control" required>
-    </div>
-    <div class="row">
-        <label for="password">Password</label>
-    </div>
-    <div class="row">
-        <input type="password" id="password" placeholder="Enter a password" class="form-control" required />
-    </div>
-    <div class="row">
-        <label for="repeat-pass">Repeat Password</label>
-    </div>
-    <div class="row">    
-        <input type="password" id="repeat-pass" placeholder="Repeat your password" class="form-control" required>
-    </div>
+    function checkPasswordMatch() {
+        let password = $("#password").val();
+        let confirmPassword = $("#repeat-pass").val();
 
-    <div class="row">
-        <button type="submit" id="register-btn" class="btn btn-primary">Register</button>
+        if (password != confirmPassword) {
+            $('#register-btn').hide();
+            $("#divCheckPasswordMatch").html("Passwords do not match!");
+        }
+        else {
+            $("#divCheckPasswordMatch").html("Passwords match.");
+            $('#register-btn').show();
+        }
+
+    }
+
+    $(document).ready(function () {
+        $("#txtConfirmPassword").keyup(checkPasswordMatch);
+    });
+
+</script>
+
+<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+    <div class="register form-inline" onsubmit="return validateForm();">
+        <div class="row">
+            <label for="username">Username</label>
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Enter your username" id="username" class="form-control" required>
+        </div>
+        <div class="row">
+            <label for="email">E-mail</label>
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Enter your email" id="email" class="form-control" required>
+        </div>
+        <div class="row">
+            <label for="password">Password</label>
+        </div>
+        <div class="row">
+            <input type="password" id="password" placeholder="Enter a password" class="form-control" required />
+        </div>
+        <div class="row">
+            <label for="repeat-pass">Repeat Password</label>
+        </div>
+        <div class="row">
+            <input type="password" id="repeat-pass" placeholder="Repeat your password" class="form-control" required onChange="checkPasswordMatch();">
+        </div>
+        <strong><div style="color:#ff0000" class="registrationFormAlert" id="divCheckPasswordMatch">
+        </div></strong>
+        <div class="row">
+            <button type="submit" id="register-btn" class="btn btn-primary">Register</button>
+        </div>
     </div>
-</div>
