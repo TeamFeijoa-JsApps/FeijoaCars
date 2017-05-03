@@ -1,5 +1,5 @@
 class Ad {
-    constructor(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate) {
+    constructor(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageURL) {
         this.title = title;
         this.make = make;
         this.model = model;
@@ -9,6 +9,7 @@ class Ad {
         this.mileage = mileage;
         this.gearbox = gearbox;
         this.manufactureDate = manufactureDate;
+        this.imageUrl = imageURL;
     }
 
     get title() {
@@ -82,6 +83,14 @@ class Ad {
     set manufactureDate(value) {
         this._manufactureDate = value;
     }
+
+    get imageUrl() {
+        return this._imageUrl;
+    }
+
+    set imageUrl(value) {
+        this._imageUrl = value;
+    }
 }
 
-export { Ad };
+export {Ad};

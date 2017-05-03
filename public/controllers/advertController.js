@@ -19,24 +19,23 @@ let adController = (() => {
                     power = $('#power').val(),
                     mileage = $('#mileage').val(),
                     gearbox = $('#gearbox').val(),
-                    manufactureDate = $('#manufactureDate').val();
+                    manufactureDate = $('#manufactureDate').val(),
+                    imageUrl = $('#image').val();
 
                     adValidator.validateModel(model);
                     adValidator.validatePrice(price);
                     adValidator.validatePower(power);
                     adValidator.validateMileage(mileage);
 
-                let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate);
+                let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
 
                 data.addNewAd(newAd)
-                    .then(() => {
+                    .then((success) => {
+                        console.log(success);
                         location.hash = '/myAds';
                     });
-
             });
         });
-
-
     }
 
     function displayAds() {
@@ -54,14 +53,11 @@ let adController = (() => {
         return data.getAds();
     }
 
-
     return {
         addNewAd,
         displayAds,
         getNewestAds
     }
-
-
 })();
 
 export { adController };

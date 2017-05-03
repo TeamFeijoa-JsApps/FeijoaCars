@@ -1,29 +1,31 @@
 <div class="col-lg-6 col-md-6 col-sm-6">
-  <div class="content">
-   
-   {{#each .}}
-    <div class="ad thumbnail">
-	    <p>
-	    <h3>{{_title}}</h3>
-	    </br>
-	    {{_make}}
-      </br>
-      {{_fuel}}
-      </br>
-      {{_gearbox}}
-      </br>
-      {{_manufactureDate}}
-      </br>
-      {{_mileage}}
-      </br>
-      {{_model}}
-      </br>
-      {{_power}}
-      </br>
-      {{_price}}
-	    </p>
-    </div>
-    {{/each}}
+    <div class="content">
 
-  </div>
+        {{#each .}}
+            <div class="ad thumbnail">
+                <p>
+                <h3>{{_title}}</h3>
+                </br>
+                {{_make}}
+                </br>
+                {{_fuel}}
+                </br>
+                {{_gearbox}}
+                </br>
+                {{_manufactureDate}}
+                </br>
+                {{_mileage}}
+                </br>
+                {{_model}}
+                </br>
+                {{_power}}
+                </br>
+                {{_price}}
+                </br>
+                <img src={{_imageUrl}}>
+                </p>
+            </div>
+        {{/each}}
+
+    </div>
 </div>
