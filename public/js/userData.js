@@ -1,5 +1,24 @@
 import { requester } from 'requester';
 import { constants } from 'constants';
+import toastr from 'toastr';
+
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "150",
+    "hideDuration": "1000",
+    "timeOut": "2000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
 
 const serviceURL = constants.kinveyInfo.hostUrl + 'user/' + constants.kinveyInfo.appKey + '/';
 
@@ -12,13 +31,16 @@ function setSessionStorage(success) {
 let userData = (() => {
     function register(user) {
         return requester.post(serviceURL, user, false)
+            .catch((er) => {
+                toastr['error'](er.responseJSON.description);
+            })
             .then((success) => {
                 setSessionStorage(success);
-
                 login(user);
             })
             .done(() => {
                 location.hash = '/home';
+                toastr['success']('You have successfully registered.')
             });
     }
 
@@ -26,10 +48,15 @@ let userData = (() => {
         let requestUrl = serviceURL + 'login';
 
         return requester.post(requestUrl, user, false)
+            .catch((er) => {
+                toastr['error'](er.responseJSON.description);
+            })
             .then((success) => {
                 setSessionStorage(success);
-            }).done(() => {
+            })
+            .done(() => {
                 location.hash = '/home';
+                toastr['success']('You have successfully logged in.')
             })
     }
 
@@ -40,12 +67,13 @@ let userData = (() => {
                 sessionStorage.clear()
             }).done(() => {
                 location.hash = '/home';
+                toastr['success']('You have successfully logged out.')
             });
     }
 
     function showProfile(id) {
         id = sessionStorage['userId'];
-        location.hash = '/profile/'+ id;
+        location.hash = '/profile/' + id;
     }
 
     return {
