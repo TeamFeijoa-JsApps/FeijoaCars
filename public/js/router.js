@@ -16,7 +16,7 @@ let router = (() => {
             '/register': () => userController.register(),
             '/logout': () => userController.logout(),
             '/profile/:id': (id) => userController.showProfile(id),
-            '/addNewAd': () => adController.addNewAd(),
+            '/addNewAd': () => adController.newAd(),
             '/myAds': () => adController.displayAds()
         })
             .resolve();

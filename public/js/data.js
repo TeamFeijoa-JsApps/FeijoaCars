@@ -43,13 +43,21 @@ let data = (() => {
         return requester.delete(requestUrl, true);
     }
 
+    function getManufacturers() {
+        let userId = sessionStorage['userId'],
+            requestUrl = serviceURL + 'manufacturers';
+
+        return requester.get(requestUrl, true);
+    }
+
     return {
         addNewAd,
         getUserAds,
         getAdById,
         getAds,
         updateAd,
-        deleteAd
+        deleteAd,
+        getManufacturers
     }
 
 })();
