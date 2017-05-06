@@ -59,6 +59,15 @@ body {
   background-color: lavender;
 }
 
+.ad-image {
+  height: 320px;
+  width: 418px;
+}
+
+.well {
+  height: 450px;
+}
+
 @media (max-width: 768px) {
 
   #month {

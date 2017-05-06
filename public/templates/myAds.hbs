@@ -1,30 +1,61 @@
-<table id="adsTable" class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Price</th>
-            <th>Fuel</th>
-            <th>Power</th>
-            <th>Mileage</th>
-            <th>Gearbox</th>
-            <th>Manufacture date</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each .}}
-        <tr data-href="{{this._id}}">
-            <td>{{this._title}}</td>
-            <td>{{this._make}}</td>
-            <td>{{this._model}}</td>
-            <td>{{this._price}}</td>
-            <td>{{this._fuel}}</td>
-            <td>{{this._power}}</td>
-            <td>{{this._mileage}}</td>
-            <td>{{this._gearbox}}</td>
-            <td>{{this._manufactureDate}}</td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+<!--<table id="adsTable" class="table table-striped table-bordered">-->
+    <!--<thead>-->
+        <!--<tr>-->
+            <!--<th>Title</th>-->
+            <!--<th>Make</th>-->
+            <!--<th>Model</th>-->
+            <!--<th>Price</th>-->
+            <!--<th>Fuel</th>-->
+            <!--<th>Power</th>-->
+            <!--<th>Mileage</th>-->
+            <!--<th>Gearbox</th>-->
+            <!--<th>Manufacture date</th>-->
+            <!--<th>Image</th>-->
+        <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+        <!--{{#each .}}-->
+        <!--<tr data-href="{{this._id}}">-->
+            <!--<td></td>-->
+            <!--<td>{{this._make}}</td>-->
+            <!--<td>{{this._model}}</td>-->
+            <!--<td>{{this._price}}</td>-->
+            <!--<td>{{this._fuel}}</td>-->
+            <!--<td>{{this._power}}</td>-->
+            <!--<td>{{this._mileage}}</td>-->
+            <!--<td>{{this._gearbox}}</td>-->
+            <!--<td>{{this._manufactureDate}}</td>-->
+            <!--<td>-->
+                <!--<img src="{{this._imageUrl}}"/>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--{{/each}}-->
+    <!--</tbody>-->
+<!--</table>-->
+
+<div class="container-fluid">
+    <div class="row">
+    {{#each .}}
+        <div class="col-xs-6">
+            <div class="well">
+                <div class="ad">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>{{this._title}}</h3>
+                            <img src="{{this._imageUrl}}" class="ad-image">
+                        </div>
+                        <div class="col-md-6">
+                            <h3>{{this._make}} {{this._model}} {{this._price}}$</h3>
+                            <p>Manufacture date: {{this._manufactureDate}}</p>
+                            <p>Fuel: {{this._fuel}}</p>
+                            <p>Power: {{this._power}} ps.</p>
+                            <p>Mileage: {{this._mileage}} km.</p>
+                            <p>Gearbox: {{this._gearbox}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+    </div>
+</div>
