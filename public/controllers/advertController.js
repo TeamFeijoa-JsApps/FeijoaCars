@@ -10,7 +10,7 @@ let adController = (() => {
         homeController.loadWelcomeMessage();
 
         data.getManufacturers()
-            .then((data) => {
+            .then((result) => {
                 let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                     years = [],
                     currentYear = new Date().getFullYear();
@@ -19,19 +19,17 @@ let adController = (() => {
                     years.push(i);
                 };
 
-                let aaa = [
-                    {'manufacturers': data},
+                let data = [
+                    {'manufacturers': result},
                     {'months': months},
                     {'years': years}
                         ];
-                console.log(aaa);
-                addNewAd(aaa);
+                // console.log(data);
+                addNewAd(data);
             });
     }
 
     function addNewAd(manufacturers) {
-        // homeController.loadWelcomeMessage();
-
 
         templateEngine.renderTemplate('addNewAd', manufacturers, '#wrapper')
         .then(()=> {

@@ -1,14 +1,13 @@
 <div id="new-ad-form">
-    <div class="form-line">
+
+    <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-line" id="title" placeholder="Ex: Best car! (optional)">
+        <input type="text" class="form-control" id="title" placeholder="Ex: Best car! (optional)">
     </div>
 
-    <div class="form-line">
+    <div class=form-group">
         <label for="make">Make</label>
-        <!-- <input type="text" class="form-line" id="make" placeholder="Ex: BWM"> -->
-
-        <select name="make" id="make">
+        <select name="make" id="make" class="form-control">
         {{#each this}}
             {{#manufacturers}}
                 <option value="{{name}}">{{name}}</option>
@@ -18,20 +17,20 @@
     </div>
 
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="model">Model</label>
-        <input type="text" class="form-line" id="model" placeholder="Ex: M5">
+        <input type="text" class="form-control" id="model" placeholder="Ex: M5">
     </div>
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="price">Price</label>
-        <input type="text" class="form-line" id="price" placeholder="Ex: 20000">
+        <input type="text" class="form-control" id="price" placeholder="Ex: 20000">
     </div>
 
-    <div class="form-line">
+
+    <div class=form-group">
         <label for="fuel">Fuel type</label>
-        <!--<input type="text" class="form-line" id="fuel" placeholder="Ex: Diesel">-->
-        <select name="fuel type">
+        <select name="fuel" class="form-control">
             <option value="Diesel">Diesel
             <option value="Petrol">Petrol
             <option value="Hybrid">Hybrid
@@ -39,31 +38,29 @@
         </select>
     </div>
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="power">Power</label>
-        <input type="text" class="form-line" id="power" placeholder="Ex: 250">
+        <input type="text" class="form-control" id="power" placeholder="Ex: 250">
     </div>
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="mileage">Mileage</label>
-        <input type="text" class="form-line" id="mileage" placeholder="Ex: 1000">
+        <input type="text" class="form-control" id="mileage" placeholder="Ex: 1000">
     </div>
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="gearbox">Gearbox</label>
-        <!--<input type="text" class="form-line" id="gearbox" placeholder="Ex: Automatic">-->
 
-        <select name="gearbox">
+        <select name="gearbox" class="form-control">
             <option value="Manual">Manual
             <option value="Automatic">Automatic
             <option value="Semi-automatic">Semi-automatic
         </select>
     </div>
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="manufactureDate">Manufacture date</label>
-        <!--<input type="text" class="form-line" id="manufactureDate" placeholder="Ex: 05/2016">-->
-        <select id="month">
+        <select id="month" class="form-control">
         {{#each this}}
             {{#months}}
                 <option value="{{@index}}">{{this}}</option>
@@ -72,7 +69,7 @@
       
         </select>
 
-        <select id="year">
+        <select id="year" class="form-control">
         {{#each this}}
             {{#years}}
                 <option value="{{this}}">{{this}}</option>
@@ -81,10 +78,11 @@
         </select>
     </div>
 
-    <div class="form-line">
+    <div class="form-group">
         <label for="image">Image url</label>
-        <input type="text" class="form-line" id="image">
+        <input type="text" class="form-control" id="image">
     </div>
 
-    <input type="submit" id="submitAdInfo-btn" value="Add">
+    <input type="submit" id="submitAdInfo-btn" value="Add" class="btn-block btn-lg btn-primary">
+    
 </div>
