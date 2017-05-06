@@ -17,7 +17,8 @@ let router = (() => {
             '/logout': () => userController.logout(),
             '/profile/:id': (id) => userController.showProfile(id),
             '/addNewAd': () => adController.newAd(),
-            '/myAds': () => adController.displayAds()
+            '/myAds': () => adController.displayAds(),
+            '/myAds/:id': (id) => adController.getAd(id)
         })
             .resolve();
     }

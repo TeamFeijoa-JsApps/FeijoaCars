@@ -61,34 +61,6 @@ let adController = (() => {
                 });
             });
         });
-
-        // $('#wrapper').load('public/templates/addNewAd.html', null, () => {
-        //     $("#submitAdInfo-btn").on('click', (ev) => {
-        //         let title = $('#title').val(),
-        //             make = $('#make').val(),
-        //             model = $('#model').val(),
-        //             price = $('#price').val(),
-        //             fuel = $('#fuel').val(),
-        //             power = $('#power').val(),
-        //             mileage = $('#mileage').val(),
-        //             gearbox = $('#gearbox').val(),
-        //             manufactureDate = $('#manufactureDate').val(),
-        //             imageUrl = $('#image').val();
-
-        //             adValidator.validateModel(model);
-        //             adValidator.validatePrice(price);
-        //             adValidator.validatePower(power);
-        //             adValidator.validateMileage(mileage);
-
-        //         let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
-
-        //         data.addNewAd(newAd)
-        //             .then((success) => {
-        //                 console.log(success);
-        //                 location.hash = '/myAds';
-        //             });
-        //     });
-        // });
     }
 
     function displayAds() {
@@ -96,8 +68,22 @@ let adController = (() => {
 
         data.getUserAds()
             .then((userAds) => {
-                templateEngine.renderTemplate('myAds', userAds, '#wrapper');
-            } )
+                templateEngine.renderTemplate('myAds', userAds, '#wrapper')
+                .then(() =>{
+                    $("#adsTable").on("click", "tr", function() {
+                        let link = $(this).data('href');
+                        getAd(link);
+                   });
+                });
+            });
+    }
+
+    function getAd(id) {
+        data.getAdById(id)
+            .then((result) => {
+                location.hash = '/myAds/'+result._id;
+                templateEngine.renderTemplate('currentAd', result, '#wrapper');
+            });
     }
 
     function getNewestAds() {
@@ -110,7 +96,8 @@ let adController = (() => {
         addNewAd,
         displayAds,
         getNewestAds,
-        newAd
+        newAd,
+        getAd
     }
 })();
 

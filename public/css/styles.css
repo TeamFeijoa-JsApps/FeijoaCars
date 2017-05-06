@@ -33,9 +33,30 @@ body {
   margin: 0 auto;
 }
 
-#month, #year {
+#currentAd {
+  width: 40%;
+}
+
+#currentAd #month,
+#currentAd #year {
+  width: 35%;
+  display: inline-block;
+  float: right;
+}
+
+#new-ad-form #month,
+#new-ad-form #year {
   width: 39%;
   display: inline-block;
+}
+
+#submitAdInfo-btn {
+  margin-bottom: 20px;
+}
+
+#adsTable tbody tr:hover {
+  cursor: pointer;
+  background-color: lavender;
 }
 
 @media (max-width: 768px) {
