@@ -71,7 +71,6 @@ debugger;
                 templateEngine.renderTemplate('myAds', userAds, '#wrapper')
                 .then(() =>{
                     $("#adsTable").on("click", "tr", function() {
-                        debugger;
                         let link = $(this).data('href');
                         getAd(link);
                    });
@@ -82,7 +81,6 @@ debugger;
     function getAd(id) {
         homeController.loadWelcomeMessage();
 
-        debugger;
         data.getAdById(id)
             .then((result) => {
                 location.hash = '/myAds/'+result._id;

@@ -20,6 +20,10 @@ let data = (() => {
     }
     
     function getAdById(id) {
+       if(typeof id === 'object') {
+            id = id.id;
+        }
+
         let requestUrl = serviceURL + 'ads/' +id;
 
         return requester.get(requestUrl, true);
