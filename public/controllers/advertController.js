@@ -53,7 +53,7 @@ let adController = (() => {
                 adValidator.validateMileage(mileage);
 
             let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
-
+debugger;
             data.addNewAd(newAd)
                 .then((success) => {
                     console.log(success);
@@ -71,6 +71,7 @@ let adController = (() => {
                 templateEngine.renderTemplate('myAds', userAds, '#wrapper')
                 .then(() =>{
                     $("#adsTable").on("click", "tr", function() {
+                        debugger;
                         let link = $(this).data('href');
                         getAd(link);
                    });
@@ -79,6 +80,9 @@ let adController = (() => {
     }
 
     function getAd(id) {
+        homeController.loadWelcomeMessage();
+
+        debugger;
         data.getAdById(id)
             .then((result) => {
                 location.hash = '/myAds/'+result._id;
