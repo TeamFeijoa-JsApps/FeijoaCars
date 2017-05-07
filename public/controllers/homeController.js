@@ -4,11 +4,11 @@ import { adController } from 'adController';
 
 
 let homeController = (() => {
+
     function home() {
         loadWelcomeMessage();
 
         adController.getNewestAds().then((ads) => {
-        //    console.log(ads);
             templateEngine.renderTemplate('home', ads, '#wrapper');
         }).then(() => {
                 if(userController.isLoggedIn()) {
