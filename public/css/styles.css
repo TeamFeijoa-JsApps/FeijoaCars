@@ -31,6 +31,69 @@ a:hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
+.left {
+  float: left;
+  width: 50%;
+  margin-left: 10%;
+}
+
+.ad.thumbnail img {
+  width: 100%;
+}
+
+.ad.thumbnail p span:first-child {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.info-field {
+  font-weight: bold;
+  font-style: italic;  
+}
+
+.manufacturer {
+  background: url("../res/factory.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.fuel {
+  background: url("../res/fuel.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.gearbox {
+  background: url("../res/gears.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.manufactureDate {
+  background: url("../res/calendar.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.mileage {
+  background: url("../res/mileage.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.model {
+  background: url("../res/car.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.power {
+  background: url("../res/engine.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
+.price {
+  background: url("../res/dollar.png") 0 0 no-repeat;
+  background-size: 20px 20px;
+}
+
 #tread:before {
   content: '';
   position: absolute;
@@ -99,7 +162,7 @@ a:hover {
   height: 450px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 120px) and (max-width: 480px) {
 
   #month {
     margin-bottom: 10px;
@@ -107,6 +170,22 @@ a:hover {
 
   #month, #year {
     width: 100%;
+  }
+
+  .ad.thumbnail p span:first-child {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+
+  .ad.thumbnail p span:not(:first-child) {
+    margin-left: 30px;
+  }
+
+  .info-field {
+    display: none;
   }
 
 }

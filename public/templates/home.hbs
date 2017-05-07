@@ -1,29 +1,55 @@
-<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="content">
 
         {{#each .}}
             <div class="ad thumbnail">
-                <p>
-                <h3>{{_title}}</h3>
-                </br>
-                {{_make}}
-                </br>
-                {{_fuel}}
-                </br>
-                {{_gearbox}}
-                </br>
-                {{_manufactureDate}}
-                </br>
-                {{_mileage}}
-                </br>
-                {{_model}}
-                </br>
-                {{_power}}
-                </br>
-                {{_price}}
-                </br>
+
+                <h3 class="text-center">{{_title}}</h3>
+                <div class="left">
+                    <p>
+                        <span class="manufacturer"></span>
+                        <span class="info-field">Manufacturer:</span>
+                        <span>{{_make}}</span>
+                    </p>
+                    <p>
+                        <span class="fuel"></span>
+                        <span class="info-field">Fuel:</span>
+                        <span>{{_fuel}}</span>
+                    </p>
+                    <p>
+                        <span class="gearbox"></span>
+                        <span class="info-field">Gearbox:</span>
+                        <span>{{_gearbox}}</span>
+                    </p>
+                    <p>
+                        <span class="manufactureDate"></span>
+                        <span class="info-field">Manufacture Date:</span>
+                        <span>{{_manufactureDate}}</span>
+                    </p>
+                </div>
+                <div class="right">
+                    <p>
+                        <span class="mileage"></span>
+                        <span class="info-field">Mileage:</span>
+                        <span>{{_mileage}}
+                    </p>
+                    <p>
+                        <span class="model"></span>
+                        <span class="info-field">Model:</span>
+                        <span>{{_model}}</span>
+                    </p>
+                    <p>
+                        <span class="power"></span>
+                        <span class="info-field">Power:</span>
+                        <span>{{_power}}</span>
+                    </p>
+                    <p>
+                        <span class="price"></span>
+                        <span class="info-field">Price:</span>
+                        <span>{{_price}}</span>
+                    </p>
+                </div>
                 <img src={{_imageUrl}}>
-                </p>
             </div>
         {{/each}}
 
