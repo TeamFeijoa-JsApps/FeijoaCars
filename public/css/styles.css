@@ -37,8 +37,19 @@ a:hover {
   margin-left: 10%;
 }
 
+.ad.thumbnail {
+  width: 45%;
+  float: left;
+}
+
+.ad.thumbnail:nth-child(odd) {
+  margin-left: 2%;
+  margin-right: 5%;
+}
+
 .ad.thumbnail img {
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .ad.thumbnail p span:first-child {
@@ -52,6 +63,29 @@ a:hover {
 .info-field {
   font-weight: bold;
   font-style: italic;  
+}
+
+.ad.thumbnail .controls span {
+  content: '';
+  /*position: absolute;*/
+  width: 25px;
+  height: 25px;
+  float: right;
+}
+
+.edit {
+  background: url("../res/pencil.png") 0 2px no-repeat;
+  background-size: 20px 20px;
+  margin-right: 5px;
+}
+
+.delete {
+  background: url("../res/delete.png") 0 -1px no-repeat;
+  background-size: 25px 25px;
+}
+
+.ad.thumbnail .controls span:hover {
+  cursor: pointer;
 }
 
 .manufacturer {
@@ -174,7 +208,7 @@ a:hover {
   top: 30px;
 }
 
-@media (min-width: 120px) and (max-width: 480px) {
+@media (min-width: 120px) and (max-width: 512px) {
 
   #month {
     margin-bottom: 10px;
@@ -199,5 +233,11 @@ a:hover {
   .info-field {
     display: none;
   }
+
+  .ad.thumbnail img {
+    width: 150px;
+    height: 150px;
+  }
+
 
 }
