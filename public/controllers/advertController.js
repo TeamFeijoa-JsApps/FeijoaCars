@@ -85,6 +85,11 @@ let adController = (() => {
                         });
                     });
 
+                    $('.edit').on('click', (e) => {
+                        let id =$(e.target).parent().parent().data('href');
+                        getAd(id);
+                    });
+
                 });
             });
     }
