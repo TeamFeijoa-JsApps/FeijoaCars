@@ -162,6 +162,18 @@ a:hover {
   height: 450px;
 }
 
+.welcome-message .fb-like {
+  position: absolute;
+  right: 150px;
+  top: 2px;
+}
+
+.welcome-message .tweet {
+  position: absolute;
+  right: 150px;
+  top: 30px;
+}
+
 @media (min-width: 120px) and (max-width: 480px) {
 
   #month {

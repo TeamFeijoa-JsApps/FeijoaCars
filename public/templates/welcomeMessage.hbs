@@ -1,23 +1,29 @@
 <div class="welcome-message">
 
-<div class="col-lg-1 text-left">
-  <div class="home">
-    <a href="#/home" class="h1">Home</a>
-  </div>
-</div>
+    <div class="col-lg-1 text-left">
+        <div class="home">
+            <a href="#/home" class="h1">Home</a>
+        </div>
+    </div>
+
+    <div class="fb-like" data-href="http://127.0.0.1:8080" data-width="200" data-layout="button" data-action="like" data-size="small"
+        data-show-faces="true" data-share="true"></div>
+    <script async src='public/js/3rdParty/facebook.js'></script>
+
+    <div class='tweet'> <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false"></a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
 
     {{#if username}}
-        <p>Welcome, {{username}}!</p>
-        <a href="#/profile/:id" id="profile">My Profile</a> | 
-        <a href="#/logout" id="logout-btn">Logout</a>
-        <div class="buttons text-left">
-            <button id="addNewAd-btn" class="btn btn-info">Create new ad</button>
-            <button id="showMyAds-btn" class="btn btn-info">Show my ads</button>
-        </div>
+    <p>Welcome, {{username}}!</p>
+    <a href="#/profile/:id" id="profile">My Profile</a> |
+    <a href="#/logout" id="logout-btn">Logout</a>
+    <div class="buttons text-left">
+        <button id="addNewAd-btn" class="btn btn-info">Create new ad</button>
+        <button id="showMyAds-btn" class="btn btn-info">Show my ads</button>
+    </div>
     {{else}}
-        <p>Welcome, Guest!</p>
-        <a href="#/login/">Login</a> | 
-        <a href="#/register/">Register</a>
-    {{/if}}
+    <p>Welcome, Guest!</p>
+    <a href="#/login/">Login</a> |
+    <a href="#/register/">Register</a> {{/if}}
 </div>
-
