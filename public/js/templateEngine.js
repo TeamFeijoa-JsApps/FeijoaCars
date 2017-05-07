@@ -4,7 +4,7 @@ import 'jquery';
 let templateEngine =(() => {
 
 	function renderTemplate(name, context, destination) {
-	    return $.get('/public/templates/' +name+ '.hbs')
+	    return $.get('/public/templates/' +name+ '.handlebars')
 	    		.then(function(data) {
 	    			let template = Handlebars.compile(data);
 					let compiledTemplate = template(context);
