@@ -53,7 +53,6 @@ let adController = (() => {
                 adValidator.validateMileage(mileage);
 
             let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
-debugger;
             data.addNewAd(newAd)
                 .then((success) => {
                     console.log(success);
@@ -72,8 +71,20 @@ debugger;
                 .then(() =>{
                     $("#adsTable").on("click", "tr", function() {
                         let link = $(this).data('href');
-                        getAd(link);
+                        alert(link);
+                        // getAd(link);
                    });
+
+                    $('.delete').on('click', (e) => {
+                        let id =$(e.target).parent().parent().data('href');
+                        console.log(id);
+                        data.deleteAd(id)
+                        .then(() => {
+                            this.displayAds();
+                            console.log(this);
+                        });
+                    });
+
                 });
             });
     }
@@ -93,6 +104,7 @@ debugger;
 
         return data.getAds();
     }
+
 
     return {
         addNewAd,
