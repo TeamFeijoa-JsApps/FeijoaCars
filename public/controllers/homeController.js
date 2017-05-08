@@ -11,7 +11,8 @@ let homeController = (() => {
         if (userController.isLoggedIn()) {
             adController.getNewestAds().then((ads) => {
             
-            templateEngine.renderTemplate('home', ads, '#wrapper')
+            // templateEngine.renderTemplate('home', ads, '#wrapper')
+            templateEngine.getTemplate('home', ads, '#wrapper')
             .then(() => {
                 $('h3').on('click', (e) => {
                     let id =$(e.target).parent().data('href');
@@ -23,7 +24,8 @@ let homeController = (() => {
                         }
                     };
                     // console.log(ad);
-                    templateEngine.renderTemplate('viewAd', ad, '#wrapper');
+                    // templateEngine.renderTemplate('viewAd', ad, '#wrapper');
+                    templateEngine.getTemplate('viewAd', ad, '#wrapper');
                 });
             });
             }).then(() => {
@@ -44,8 +46,8 @@ let homeController = (() => {
         if (userController.isLoggedIn()) {
             user.username = sessionStorage['username'];
         }
-
-        templateEngine.renderTemplate('welcomeMessage', user, '#main-header')
+        // templateEngine.renderTemplate('welcomeMessage', user, '#main-header')
+        templateEngine.getTemplate('welcomeMessage', user, '#main-header')
             .then(() => {
                 $('#addNewAd-btn').on('click', (ev) => {
                     location.hash = '/addNewAd';

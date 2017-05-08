@@ -7,7 +7,8 @@ let userController = (() => {
     function register() {
         $('#wrapper').load('public/templates/register.html', null, () => {
 
-            templateEngine.renderTemplate('welcomeMessage', null, '#main-header');
+            // templateEngine.renderTemplate('welcomeMessage', null, '#main-header');
+            templateEngine.getTemplate('welcomeMessage', null, '#main-header');
 
             $("#register-btn").on('click', (ev) => {
                 let username = $('#username').val(),
@@ -32,7 +33,8 @@ let userController = (() => {
     function login() {
         $('#wrapper').load('public/templates/login.html', null, () => {
 
-            templateEngine.renderTemplate('welcomeMessage', null, '#main-header');
+            // templateEngine.renderTemplate('welcomeMessage', null, '#main-header');
+            templateEngine.getTemplate('welcomeMessage', null, '#main-header');
 
             $("#login-btn").on('click', (ev) => {
                 let username = $('#username').val(),
@@ -68,7 +70,8 @@ let userController = (() => {
         }
 
         userData.showProfile(id);
-        templateEngine.renderTemplate('profile', user, '#wrapper');
+        // templateEngine.renderTemplate('profile', user, '#wrapper');
+        templateEngine.getTemplate('profile', user, '#wrapper');
     }
 
 

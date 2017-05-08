@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
 import 'jquery';
-// import { templates } from 'templates';
+import { templates } from 'templates';
 
 let templateEngine =(() => {
 
@@ -17,8 +17,11 @@ let templateEngine =(() => {
 	function getTemplate(name, context, destination) {
 		let compiledTemplate = Handlebars.templates[name],
 	    	output = compiledTemplate(context);
-
-    	$(destination).html(output);
+	    
+	    return new Promise((resolve, reject) => {
+	    		resolve($(destination).html(output));
+	    });
+    	
 	}
 
 	return {

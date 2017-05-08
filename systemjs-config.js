@@ -16,7 +16,7 @@ SystemJS.config({
         'app': './public/js/app.js',
 
         // scripts
-        // 'templates' : './public/templates/templates.js',
+        'templates' : './public/templates/templates.js',
         'templateEngine': './public/js/templateEngine.js',
         'router': './public/js/router.js',
         'requester': './public/js/requester.js',

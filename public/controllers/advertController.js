@@ -31,7 +31,8 @@ let adController = (() => {
 
     function addNewAd(manufacturers) {
 
-        templateEngine.renderTemplate('addNewAd', manufacturers, '#wrapper')
+        // templateEngine.renderTemplate('addNewAd', manufacturers, '#wrapper')
+        templateEngine.getTemplate('addNewAd', manufacturers, '#wrapper')
         .then(()=> {
             $("#submitAdInfo-btn").on('click', (ev) => {
 
@@ -57,7 +58,8 @@ let adController = (() => {
         data.getUserAds()
             .then((userAds) => {
                 ads = userAds;
-                templateEngine.renderTemplate('myAds', userAds, '#wrapper')
+                // templateEngine.renderTemplate('myAds', userAds, '#wrapper')
+                templateEngine.getTemplate('myAds', userAds, '#wrapper')
                 .then(() =>{
                     $('.delete').on('click', (e) => {
 
@@ -110,7 +112,8 @@ let adController = (() => {
                      };
                  })
                 .then((obj)=> {
-                    templateEngine.renderTemplate('currentAd', obj, '#wrapper')
+                    // templateEngine.renderTemplate('currentAd', obj, '#wrapper')
+                    templateEngine.getTemplate('currentAd', obj, '#wrapper')
                     .then(()=> {
                         $("#submitAdInfo-btn").on('click', (ev) => {
 
