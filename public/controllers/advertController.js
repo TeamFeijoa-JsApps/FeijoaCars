@@ -100,8 +100,70 @@ let adController = (() => {
         data.getAdById(id)
             .then((result) => {
                 location.hash = '/myAds/'+result._id;
-                templateEngine.renderTemplate('currentAd', result, '#wrapper');
+                let obj = {};
+
+                data.getManufacturers()
+                .then((manuf) => {
+
+                let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    years = [],
+                    currentYear = new Date().getFullYear();
+
+                for (let i = 1930; i <= currentYear; i++) {
+                    years.push(i);
+                };
+
+                    return obj = {
+                        result,
+                        manuf: { manuf },
+                        months: {months},
+                        years: {years}
+                     };
+                 })
+                .then((obj)=> {
+                    // console.log(obj);
+                    templateEngine.renderTemplate('currentAd', obj, '#wrapper')
+                    .then(()=> {
+                        $("#submitAdInfo-btn").on('click', (ev) => {
+
+                        let month = Number($('#month option:selected').val()) + 1,    
+                            title = $('#title').val(),
+                            make = $('#make').val(),
+                            model = $('#model').val(),
+                            price = $('#price').val(),
+                            fuel = $('#fuel').val(),
+                            power = $('#power').val(),
+                            mileage = $('#mileage').val(),
+                            gearbox = $('#gearbox').val(),
+                            manufactureDate = month +'/'+ $('#year').val(),
+                            imageUrl = $('#image').val();
+
+                            adValidator.validateModel(model);
+                            adValidator.validatePrice(price);
+                            adValidator.validatePower(power);
+                            adValidator.validateMileage(mileage);
+
+                        let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
+                        console.log(obj);
+                        console.log(obj.result._id);
+                        console.log(newAd);
+                        debugger;
+                        data.updateAd(obj.result)
+                            .then((success) => {
+                                console.log(success);
+                                location.hash = '/myAds';
+                            });
+                        });
+                    }); // end final
+
+                });
+
             });
+
+
+            // NEW
+             // templateEngine.renderTemplate('addNewAd', manufacturers, '#wrapper')
+      
     }
 
     function getNewestAds() {
