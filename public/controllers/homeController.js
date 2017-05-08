@@ -11,7 +11,21 @@ let homeController = (() => {
         if (userController.isLoggedIn()) {
             adController.getNewestAds().then((ads) => {
             
-            templateEngine.renderTemplate('home', ads, '#wrapper');
+            templateEngine.renderTemplate('home', ads, '#wrapper')
+            .then(() => {
+                $('h3').on('click', (e) => {
+                    let id =$(e.target).parent().data('href');
+                    let ad = {};
+                    // console.log(id);
+                    for (var i = 0;  i < ads.length; i++) {
+                        if (id === ads[i]._id) {
+                            ad = ads[i];
+                        }
+                    };
+                    // console.log(ad);
+                    templateEngine.renderTemplate('viewAd', ad, '#wrapper');
+                });
+            });
             }).then(() => {
                 if(userController.isLoggedIn()) {
                     $('#addNewAd-btn').show();

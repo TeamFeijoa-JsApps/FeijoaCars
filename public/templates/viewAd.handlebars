@@ -1,9 +1,8 @@
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="content">
-
-        {{#each .}}
-            <div class="ad thumbnail" data-href="{{this._id}}">
-
+  <div class="ad">
+                <div class="controls">
+                    <span class="delete"></span>
+                    <span class="edit"></span>
+                </div>
                 <h3 class="text-center">{{_title}}</h3>
                 <img src={{_imageUrl}}>
 
@@ -52,7 +51,3 @@
                     </p>
                 </div>
             </div>
-        {{/each}}
-
-    </div>
-</div>
