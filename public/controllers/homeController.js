@@ -17,13 +17,11 @@ let homeController = (() => {
                 $('h3').on('click', (e) => {
                     let id =$(e.target).parent().data('href');
                     let ad = {};
-                    // console.log(id);
                     for (var i = 0;  i < ads.length; i++) {
                         if (id === ads[i]._id) {
                             ad = ads[i];
                         }
                     };
-                    // console.log(ad);
                     // templateEngine.renderTemplate('viewAd', ad, '#wrapper');
                     templateEngine.getTemplate('viewAd', ad, '#wrapper');
                 });

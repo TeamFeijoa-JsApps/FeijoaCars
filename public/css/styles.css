@@ -91,6 +91,11 @@ a:hover {
   cursor: pointer;
 }
 
+.ad.thumbnail h3:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .manufacturer {
   background: url("../res/factory.png") 0 0 no-repeat;
   background-size: 20px 20px;
@@ -177,7 +182,7 @@ a:hover {
 
 #new-ad-form #month,
 #new-ad-form #year {
-  width: 39%;
+  width: 39.9%;
   display: inline-block;
 }
 
@@ -218,7 +223,7 @@ a:hover {
     width: 100%;
   }
 
-  .ad.thumbnail p span:first-child {
+  .ad p span:first-child {
     content: '';
     position: absolute;
     width: 100%;
@@ -226,7 +231,7 @@ a:hover {
     display: inline-block;
   }
 
-  .ad.thumbnail p span:not(:first-child) {
+  .ad p span:not(:first-child) {
     margin-left: 30px;
   }
 
@@ -234,7 +239,7 @@ a:hover {
     display: none;
   }
 
-  .ad.thumbnail img {
+  .ad img {
     width: 150px;
     height: 150px;
   }
