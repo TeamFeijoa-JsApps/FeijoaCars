@@ -8,9 +8,11 @@ let homeController = (() => {
     function home() {
         loadWelcomeMessage();
 
-        adController.getNewestAds().then((ads) => {
+        if (userController.isLoggedIn()) {
+            adController.getNewestAds().then((ads) => {
+            
             templateEngine.renderTemplate('home', ads, '#wrapper');
-        }).then(() => {
+            }).then(() => {
                 if(userController.isLoggedIn()) {
                     $('#addNewAd-btn').show();
                     $('#showMyAds-btn').show();
@@ -18,13 +20,14 @@ let homeController = (() => {
                     $('#addNewAd-btn').hide();
                     $('#showMyAds-btn').hide();
                 }
-        });
+            });    
+        }
     }
     
     function loadWelcomeMessage() {
         let user = {};
 
-        if(userController.isLoggedIn()) {
+        if (userController.isLoggedIn()) {
             user.username = sessionStorage['username'];
         }
 

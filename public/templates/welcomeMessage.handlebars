@@ -7,15 +7,17 @@
     </div>
 
     {{#if username}}
-    <p>Welcome, {{username}}!</p>
-    <a href="#/profile/:id" id="profile">My Profile</a> |
-    <a href="#/logout" id="logout-btn">Logout</a>
-    <div class="buttons text-left">
-        <button id="addNewAd-btn" class="btn btn-info">Create new ad</button>
-        <button id="showMyAds-btn" class="btn btn-info">Show my ads</button>
-    </div>
+        <p>Welcome, {{username}}!</p>
+        <a href="#/profile/:id" id="profile">My Profile</a> |
+        <a href="#/logout" id="logout-btn">Logout</a>
+        <div class="buttons text-left">
+            <button id="addNewAd-btn" class="btn btn-info">Create new ad</button>
+            <button id="showMyAds-btn" class="btn btn-info">Show my ads</button>
+        </div>
     {{else}}
-    <p>Welcome, Guest!</p>
-    <a href="#/login/">Login</a> |
-    <a href="#/register/">Register</a> {{/if}}
+        <p>Welcome, Guest!</p>
+        <a href="#/login/">Login</a> |
+        <a href="#/register/">Register</a>
+        <h4 class="text-center">Please log in or register to view the ads</h4>
+    {{/if}}
 </div>
