@@ -44,7 +44,6 @@ let adController = (() => {
 
             data.addNewAd(newAd)
                 .then((success) => {
-                    console.log(success);
                     location.hash = '/myAds';
                 });
             });
@@ -53,19 +52,25 @@ let adController = (() => {
 
     function displayAds() {
         homeController.loadWelcomeMessage();
+        let ads = {};
 
         data.getUserAds()
             .then((userAds) => {
+                ads = userAds;
                 templateEngine.renderTemplate('myAds', userAds, '#wrapper')
                 .then(() =>{
                     $('.delete').on('click', (e) => {
+
                         let id =$(e.target).parent().parent().data('href');
-                        console.log(id);
-                   
-                        data.deleteAd(id)
+                        let ad = {};
+                        for (var i = 0;  i < ads.length; i++) {
+                            if (id === ads[i]._id) {
+                                ad = ads[i];
+                            }
+                        };
+                        data.deleteAd(ad)
                         .then(() => {
                             this.displayAds();
-                            console.log(this);
                         });
                     });
 

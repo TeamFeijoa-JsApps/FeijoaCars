@@ -41,10 +41,10 @@ let data = (() => {
         return requester.put(requestUrl, ad, true);
     }
     
-    function deleteAd(id) {
-        let requestUrl = serviceURL + 'ads/?query={"_id":"' + id + '"}}';
+    function deleteAd(ad) {
+        let requestUrl = serviceURL + 'ads/' + ad._id;
 
-        return requester.delete(requestUrl, true);
+        return requester.delete(requestUrl, ad, true);
     }
 
     function getManufacturers() {

@@ -51,10 +51,10 @@ class Requester {
         return request(url, 'PUT', data, headers);
     };
 
-    delete(url, useSession) {
+    delete(url, data, useSession) {
         var headers = getHeaders(false, useSession);
 
-        return request(url, 'DELETE', null, headers);
+        return request(url, 'DELETE', data, headers);
     };
 }
 
