@@ -54,7 +54,7 @@ class Requester {
     delete(url, useSession) {
         var headers = getHeaders(false, useSession);
 
-        return request(url, 'DELETE', headers, null);
+        return request(url, 'DELETE', null, headers);
     };
 }
 
