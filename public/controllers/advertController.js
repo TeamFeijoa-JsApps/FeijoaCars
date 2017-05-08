@@ -58,15 +58,10 @@ let adController = (() => {
             .then((userAds) => {
                 templateEngine.renderTemplate('myAds', userAds, '#wrapper')
                 .then(() =>{
-                    $("#adsTable").on("click", "tr", function() {
-                        let link = $(this).data('href');
-                        alert(link);
-                        // getAd(link);
-                   });
-
                     $('.delete').on('click', (e) => {
                         let id =$(e.target).parent().parent().data('href');
                         console.log(id);
+                   
                         data.deleteAd(id)
                         .then(() => {
                             this.displayAds();
@@ -114,27 +109,24 @@ let adController = (() => {
                     .then(()=> {
                         $("#submitAdInfo-btn").on('click', (ev) => {
 
-                        let newAd = getFields();
-                        newAd._id =obj.result._id;
+                            let newAd = getFields();
+                            newAd._id =obj.result._id;
 
-                        adValidator.validateModel(newAd.model);
-                        adValidator.validatePrice(newAd.price);
-                        adValidator.validatePower(newAd.power);
-                        adValidator.validateMileage(newAd.mileage);
+                            adValidator.validateModel(newAd.model);
+                            adValidator.validatePrice(newAd.price);
+                            adValidator.validatePower(newAd.power);
+                            adValidator.validateMileage(newAd.mileage);
 
-                        // console.log(obj.result);
-                        data.updateAd(newAd)
+                            // console.log(obj.result);
+                            data.updateAd(newAd)
                             .then((success) => {
                                 // console.log(success);
                                 location.hash = '/myAds';
                             });
                         });
                     });
-
                 });
-
             });
-
     }
 
     function getNewestAds() {
