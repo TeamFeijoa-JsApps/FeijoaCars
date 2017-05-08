@@ -35,24 +35,13 @@ let adController = (() => {
         .then(()=> {
             $("#submitAdInfo-btn").on('click', (ev) => {
 
-            let month = Number($('#month option:selected').val()) + 1,    
-                title = $('#title').val(),
-                make = $('#make').val(),
-                model = $('#model').val(),
-                price = $('#price').val(),
-                fuel = $('#fuel').val(),
-                power = $('#power').val(),
-                mileage = $('#mileage').val(),
-                gearbox = $('#gearbox').val(),
-                manufactureDate = month +'/'+ $('#year').val(),
-                imageUrl = $('#image').val();
+            let newAd = getFields();
 
-                adValidator.validateModel(model);
-                adValidator.validatePrice(price);
-                adValidator.validatePower(power);
-                adValidator.validateMileage(mileage);
+            adValidator.validateModel(newAd.model);
+            adValidator.validatePrice(newAd.price);
+            adValidator.validatePower(newAd.power);
+            adValidator.validateMileage(newAd.mileage);
 
-            let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
             data.addNewAd(newAd)
                 .then((success) => {
                     console.log(success);
@@ -121,55 +110,53 @@ let adController = (() => {
                      };
                  })
                 .then((obj)=> {
-                    // console.log(obj);
                     templateEngine.renderTemplate('currentAd', obj, '#wrapper')
                     .then(()=> {
                         $("#submitAdInfo-btn").on('click', (ev) => {
 
-                        let month = Number($('#month option:selected').val()) + 1,    
-                            title = $('#title').val(),
-                            make = $('#make').val(),
-                            model = $('#model').val(),
-                            price = $('#price').val(),
-                            fuel = $('#fuel').val(),
-                            power = $('#power').val(),
-                            mileage = $('#mileage').val(),
-                            gearbox = $('#gearbox').val(),
-                            manufactureDate = month +'/'+ $('#year').val(),
-                            imageUrl = $('#image').val();
+                        let newAd = getFields();
+                        newAd._id =obj.result._id;
 
-                            adValidator.validateModel(model);
-                            adValidator.validatePrice(price);
-                            adValidator.validatePower(power);
-                            adValidator.validateMileage(mileage);
+                        adValidator.validateModel(newAd.model);
+                        adValidator.validatePrice(newAd.price);
+                        adValidator.validatePower(newAd.power);
+                        adValidator.validateMileage(newAd.mileage);
 
-                        let newAd = new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
-                        console.log(obj);
-                        console.log(obj.result._id);
-                        console.log(newAd);
-                        debugger;
-                        data.updateAd(obj.result)
+                        // console.log(obj.result);
+                        data.updateAd(newAd)
                             .then((success) => {
-                                console.log(success);
+                                // console.log(success);
                                 location.hash = '/myAds';
                             });
                         });
-                    }); // end final
+                    });
 
                 });
 
             });
 
-
-            // NEW
-             // templateEngine.renderTemplate('addNewAd', manufacturers, '#wrapper')
-      
     }
 
     function getNewestAds() {
         homeController.loadWelcomeMessage();
 
         return data.getAds();
+    }
+
+    function getFields() {
+        let month = Number($('#month option:selected').val()) + 1,    
+            title = $('#title').val(),
+            make = $('#make').val(),
+            model = $('#model').val(),
+            price = $('#price').val(),
+            fuel = $('#fuel').val(),
+            power = $('#power').val(),
+            mileage = $('#mileage').val(),
+            gearbox = $('#gearbox').val(),
+            manufactureDate = month +'/'+ $('#year').val(),
+            imageUrl = $('#image').val();
+
+        return new Ad(title, make, model, price, fuel, power, mileage, gearbox, manufactureDate, imageUrl);
     }
 
 
