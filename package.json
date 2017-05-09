@@ -22,5 +22,11 @@
     "systemjs": "^0.20.12",
     "systemjs-plugin-babel": "0.0.21",
     "toastr": "^2.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "mocha": "^3.3.0",
+    "sinon": "^2.2.0"
   }
 }

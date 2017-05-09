@@ -14,72 +14,74 @@ const PASSMINLENGTH = 6;
 const userValidator = {
     validateUsername(username) {
         if (username.length > USERNAMEMAXLENGTH) {
-            throwError(`The username is too long! Should be less than ${USERNAMEMAXLENGTH} characters long.`, "Invalid Username");
+            this.throwError(`The username is too long! Should be less than ${USERNAMEMAXLENGTH} characters long.`, "Invalid Username");
         }
 
         if (username.length < USERNAMEMINLENGTH) {
-            throwError(`The username is too short! Should be more than ${USERNAMEMINLENGTH} characters long.`, `Invalid Username`);
+            this.throwError(`The username is too short! Should be more than ${USERNAMEMINLENGTH} characters long.`, `Invalid Username`);
         }
 
         if (!username.match(USERNAMEREGEX)) {
-            throwError(`The username contains invalid symbols!`, `Invalid Username`);
+            this.throwError(`The username contains invalid symbols!`, `Invalid Username`);
         }
     },
 
     validateEmail(email) {
         if (email.length > EMAILMAXLENGTH) {
-            throwError(`The email is too long! Should be less than ${USERNAMEMAXLENGTH} characters long.`, `Invalid Email`);
+           this.throwError(`The email is too long! Should be less than ${USERNAMEMAXLENGTH} characters long.`, `Invalid Email`);
         }
 
         if (email.length < EMAILMINLENGTH) {
-            throwError(`The email is too short! Should be more than ${USERNAMEMINLENGTH} characters long.`, `Invalid Email`);
+            this.throwError(`The email is too short! Should be more than ${USERNAMEMINLENGTH} characters long.`, `Invalid Email`);
         }
 
         if (!email.match(EMAILREGEX)) {
-            throwError('This email is invalid!', `Invalid Email`);
+            this.throwError('This email is invalid!', `Invalid Email`);
         }
     },
 
     validatePass(pass) {
         if (pass.length > PASSMAXLENGTH) {
-            throwError(`The password is too long! Should be less than ${PASSMAXLENGTH} characters long.`, `Invalid Password`);
+            this.throwError(`The password is too long! Should be less than ${PASSMAXLENGTH} characters long.`, `Invalid Password`);
         }
 
         if (pass.length < PASSMINLENGTH) {
-            throwError(`The password is too short! Should be more than ${PASSMINLENGTH} characters long.`, `Weak Password`);
+            this.throwError(`The password is too short! Should be more than ${PASSMINLENGTH} characters long.`, `Weak Password`);
         }
 
         if (pass.search(/[a-z]/i) < 0) {
-            throwError("Your password must contain at least one letter.", `Weak Password`);
+            this.throwError("Your password must contain at least one letter.", `Weak Password`);
         }
         if (pass.search(/[0-9]/) < 0) {
-            throwError("Your password must contain at least one digit.", `Weak Password`);
+            this.throwError("Your password must contain at least one digit.", `Weak Password`);
         }
+    },
+
+    throwError(message, title) {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr["warning"](message, title);
+        throw (message);
     }
 };
 
-let throwError = function (message, title) {
-    toastr.options = {
-        "closeButton": true,
-        "debug": false,
-        "newestOnTop": true,
-        "progressBar": true,
-        "positionClass": "toast-top-center",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    }
 
-    toastr["warning"](message, title);
-    throw (message);
-};
+
 
 export { userValidator };
 
