@@ -2,6 +2,7 @@ import { requester } from 'requester';
 import { userData } from 'userData';
 import { templateEngine } from 'templateEngine';
 import { userValidator } from 'userValidator';
+import { homeController } from 'homeController';
 
 let userController = (() => {
     function register() {
@@ -63,6 +64,7 @@ let userController = (() => {
     }
 
     function showProfile(id) {
+        homeController.loadWelcomeMessage();
         let user = {};
 
         if (userController.isLoggedIn()) {
