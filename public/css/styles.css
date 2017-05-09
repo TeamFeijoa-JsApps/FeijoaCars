@@ -24,7 +24,12 @@ a:hover {
 }
 
 .page-title {
+  text-align: center;
   text-decoration: underline;
+}
+
+.vertical-center-row {
+  padding-top: 10%;
 }
 
 #main-header {
