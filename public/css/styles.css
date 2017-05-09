@@ -213,6 +213,11 @@ a:hover {
   top: 5px;
 }
 
+#divCheckPasswordMatch{
+  font-weight: bold;
+  color: red;
+}
+
 @media (min-width: 120px) and (max-width: 512px) {
 
   #month {
